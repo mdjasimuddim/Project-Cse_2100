@@ -3,6 +3,7 @@ import AppNavBar from "./AppNavBar";
 import Footer from "./Footer";
 import {Toaster} from "react-hot-toast";
 import { PrismaClient } from '@prisma/client';
+import {cookies} from "next/headers";
 
 async function getData(){
     let prisma =new PrismaClient()
@@ -21,9 +22,15 @@ async function getData(){
 const PlainLayout = async (props) => {
     const data=await getData();
     // console.log(data);
+    const cookieStore = cookies()
+    const token = cookieStore.get('token')
+    let isLogin=false
+    isLogin = typeof token !== "undefined";
+
+
     return (
         <div> 
-            <AppNavBar data = {data} />
+            <AppNavBar isLogin={isLogin} data = {data} />
             {props.children}
             <Toaster position="bottom-center"/>
             <Footer data={data}/>

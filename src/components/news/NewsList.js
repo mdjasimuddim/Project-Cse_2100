@@ -2,6 +2,7 @@ import React from 'react';
 import Link from "next/link";
 
 const NewsList = (props) => {
+    // console.log(props.latest)
     return (
         <div className="row">
             {

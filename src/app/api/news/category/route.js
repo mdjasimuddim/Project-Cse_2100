@@ -7,7 +7,7 @@ export async function GET(req,res) {
         let catID= parseInt(searchParams.get('catID'));
 
         const prisma=new PrismaClient();
-        //For Popular
+        // For Popular
         // const result = await prisma.news_list.createMany({
         //     data:[
         //         {
@@ -51,16 +51,16 @@ export async function GET(req,res) {
         // For Featured
         // const result = await prisma.news_list.create({
         //     data:{
-        //             title:'Teletalk was born 19 years ago. It turned a profit only for two years',
-        //             short_des:'When Teletalk began its journey in December 2004, the mission was to acquire a significant market share of the booming mobile telecommunication sector of Bangladesh by providing countrywide network coverage.',
+        //             title:'Remittance rises in January',
+        //             short_des:'Migrant workers sent home $2.1 billion in January, the highest in seven months, thanks to the outflow of a record number of workers who went abroad for jobs in 2023, central bank figures showed today.',
         //             img1:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/bw_ed_2_10.jpg',
-        //             img2:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/images/2024/01/27/videocapture_20240127-192910.jpg',
-        //             img3:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/images/2024/01/26/world_court.jpg',
-        //             img4:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/images/2024/01/25/whatsapp_image_2024-01-25_at_10.14.28_pm.jpeg',
-        //             keywords:'fake api',
-        //             long_des:'When Teletalk began its journey in December 2004, the mission was to acquire a significant market share of the booming mobile telecommunication sector of Bangladesh by providing countrywide network coverage.  The state-run operator made the debut amid much fanfare and generated a huge interest among the public in the early days by providing cost-effective packages. There was a time when market leader Grameenphone charged Tk 6 per minute for voice calls whereas Teletalk set the rate at Tk 4. The affordability extended to the price of Teletalk SIMs, which were notably lower than peers, leading to scenes of long queues at selling points as people sought to take advantage of the cost-effective service.',
-        //             type:'Featured',
-        //             catID:2
+        //             img2:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/bw_ed_2_10.jpg',
+        //             img3:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/bw_ed_2_10.jpg',
+        //             img4:'https://tds-images.thedailystar.net/sites/default/files/styles/big_202/public/feature/images/bw_ed_2_10.jpg',
+        //             keywords:'Remittance Migrant workers',
+        //             long_des:"Migrant workers sent home $2.1 billion in January, the highest in seven months, thanks to the outflow of a record number of workers who went abroad for jobs in 2023, central bank figures showed today.Referring to farmers, the interim budget for 2024-25 fiscal year promised to step up value addition in agricultural sector, boost farmers' income and further promote private and public investment in post-harvest activities including aggregation, modern storage, efficient supply chains, primary and secondary processing and marketing and branding to ensure faster growth of the agriculture and food processing sector.The interim budget is aimed at taking care of the fiscal needs of the intervening period until a new government is formed after the Lok Sabha polls expected sometime in April.The full budget will be presented in July after the election. The finance ministry expects the gross domestic product to expand at 7 percent for FY24, slightly lower than earlier expectations. The finance minister said the fiscal deficit of the government would remain at 5.8 percent in financial year 2023-24 and was committed to containing it at 4.5 percent in FY26. Sitharaman said the foreign direct investment inflow into India during 2014-23 was $596 billion, which is twice the same inflow during 2005-14.",
+        //             type:'Slider',
+        //             catID:5
         //     }
         // })
 

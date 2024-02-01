@@ -55,7 +55,7 @@ model comments{
   userID Int
   postID Int
   users users @relation(fields: [userID], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  news_List news_list @relation(fields: [postID], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  news_list news_list @relation(fields: [postID], references: [id], onDelete: Restrict, onUpdate: Cascade)
   description String @db.VarChar(1000)
   createdAt DateTime @default(now()) @db.Timestamp(0)
   updatedAt DateTime @default(now()) @db.Timestamp(0) @updatedAt

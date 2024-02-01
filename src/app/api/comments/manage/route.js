@@ -5,30 +5,14 @@ import {headers} from "next/headers";
 
 export async function GET(req,res) {
     try{
-
-
         let headerList=headers();
         let id=parseInt(headerList.get('id'));
 
         const prisma=new PrismaClient();
-        // const result = await prisma.comments.createMany({
-        //     data:[
-        //         {
-        //             "userID":1,
-        //             "postID":1,
-        //             "description":"ABC"
-        //         },
-        //         {
-        //             "userID":2,
-        //             "postID":2,
-        //             "description":"ABC"
-        //         }
-        //     ]
-        // })
         const result=await prisma.comments.findMany({
             where: {userID:id},
             include:{
-                news_List:{select: {title: true}}
+                news_list:{select: {title: true}}
             }
         })
 
@@ -39,9 +23,6 @@ export async function GET(req,res) {
         return  NextResponse.json({status:"fail",data:e})
     }
 }
-
-
-
 
 
 

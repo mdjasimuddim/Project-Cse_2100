@@ -3,28 +3,11 @@ import PlainLayout from "@/components/master/Plain-Layout";
 import PopularList from "@/components/news/PopularList";
 import NewsDetails from "@/components/news/NewsDetails";
 import CommentsList from "@/components/news/Comments-List";
-import { PrismaClient } from '@prisma/client';
 
 async function getData(id){
     let Details= (await (await fetch(`${process.env.HOST}/api/news/details?id=${id}`)).json())['data']
     let Popular= (await (await fetch(`${process.env.HOST}/api/news/type?type=Popular`)).json())['data']
-    let Comments= (await (await fetch(`${process.env.HOST}/api/comments/news?postID=${id}`)).json())['data']
-    // let prisma = new PrismaClient();
-    // let Details = await prisma.news_List.findUnique({
-    //   where:{id:id},
-    //   include:{categories:true}
-    // })
-    // let Popular = await prisma.news_List.findMany({
-    //   where:{type:'Popular'},
-    //   select:{id:true,title:true,short_des:true,img1:true,img2:true,img3:true,img4:true,createdAt:true}
-    // })
-
-    // let Comments = await prisma.comments.findMany({
-    //   // where: {postID:id},
-    //   include:{
-    //       users:{select: {firstName: true}}
-    //   }
-  // })
+    let Comments= (await (await fetch(`${process.env.HOST}/api/comments/news?postID=${id}`,{ cache: 'no-store' })).json())['data']
 
     return {Details:Details,Popular:Popular,Comments:Comments}
 }
@@ -33,7 +16,7 @@ async function getData(id){
 
 
 const Page =async (props) => {
-    let id=parseInt(props.searchParams['id']);
+    let id=props.searchParams['id'];
     const data=await getData(id);
     return (
         <PlainLayout>
